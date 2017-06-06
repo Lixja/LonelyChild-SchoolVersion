@@ -9,6 +9,7 @@ public class StoryStage extends Stage {
         switch(game.getData().getPlayer().getPosition()){
             case 0:
                 game.setStage(new FightStage(new MasterStone()));
+                game.saveGameData();
                 break;
             case 1:
                 break;
@@ -24,5 +25,7 @@ public class StoryStage extends Stage {
                 break;
         }
     }
+    
+    
 
 }

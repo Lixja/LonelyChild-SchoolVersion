@@ -30,6 +30,7 @@ public class BootStage extends Stage {
         if (game.getData().isTeachedStory()) {
             if (game.in.getInputWithQuestionYesNo("Do you want to skip?")) {
                 game.setStage(new StoryStage());
+                return;
             }
         }
         game.sleep(1000);
@@ -47,6 +48,7 @@ public class BootStage extends Stage {
             game.out.writeln("What a wonderful name.\n"
                     + "Now go and save!");
             game.setStage(new StoryStage());
+            return;
         } else {
             game.out.writeln(game.getData().getPlayer().getName() + "!!!");
             game.out.writelnSlow("Go and save!", 100);

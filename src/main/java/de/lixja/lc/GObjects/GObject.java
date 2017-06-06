@@ -52,6 +52,7 @@ public class GObject {
             rn.setSeed(new Date().getTime());
             lv++;
             hp += (int) (rn.nextDouble() * lv) +1;
+            chp = hp;
             atk += (int) (rn.nextDouble() * lv) +1;
             def += (int) (rn.nextDouble() * lv)+1;
             exp = 0;
