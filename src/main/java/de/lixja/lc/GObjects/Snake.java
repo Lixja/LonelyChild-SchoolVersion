@@ -5,7 +5,7 @@ import de.lixja.lc.GObjects.obj.FightOption;
 public class Snake extends GObject {
 
     public Snake() {
-        super("Snake", 15, 1, 1, 3, 11);
+        super("Snake", 15, 1, 5, 2, 11);
         startSentence = "A Snake, An angry Snake.";
         dieSentence = "The Snake tries to rest in peace.\n Do you have fun?";
         neutralSentence = "The Snakes apologizes to you.";

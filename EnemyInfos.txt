@@ -1,0 +1,5 @@
+1. MasterStone 2hp 1def 0atk
+2. Snake 15hp 1def 4atk
+3. Wolf 10hp 4def 4atk
+4. Tiger 12hp 1def 3atk
+5. Flowey 20hp 1def 4atk
