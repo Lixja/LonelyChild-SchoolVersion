@@ -50,7 +50,7 @@ public class GameWriter {
     }
     
     public void writeS(String msg){
-        writeSlow(msg+"\n", 75);
+        writeSlow(msg+"\n", 100);
     }
     
     public void writelnSlow(String msg, int time){

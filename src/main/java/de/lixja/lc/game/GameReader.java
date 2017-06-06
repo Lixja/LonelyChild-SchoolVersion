@@ -17,6 +17,7 @@
 package de.lixja.lc.game;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -35,7 +36,7 @@ public class GameReader {
         return input.next();
     }
     
-    public int getInputWithOptionsV(LinkedList<String> options, String question) {
+    public int getInputWithOptionsV(List<String> options, String question) {
         System.out.println("---------");
         int max = options.size()-1;
         for (int i = 0; i <= max; i++) {
@@ -50,7 +51,7 @@ public class GameReader {
         return answer;
     }
 
-    public int getInputWithOptionsH(LinkedList<String> options, String question) {
+    public int getInputWithOptionsH(List<String> options, String question) {
         System.out.println("------------");
         int max = options.size()-1;
         for (int i = 0; i <= max; i++) {
