@@ -44,6 +44,7 @@ public class FightStage extends Stage {
                 game.out.writeln(enemy.getName() + " attacked you!\nYou got " + player.damage(enemy.getAtk()) + ".");
                 game.out.writeWall();
                 game.out.writeS(enemy.nextSentence());
+                game.out.writeWall();
             }
         }
         if (enemy.isDead()) {
@@ -55,15 +56,16 @@ public class FightStage extends Stage {
             }
         } else if (enemy.isHelped()) {
             game.out.writeln(enemy.getNeutralSentence());
+            player.setHp(player.getChp());
         } else if (player.isDead()) {
             game.setStage(new GameOverStage());
         }
         game.out.writeWall();
         killed = enemy.isDead();
     }
-    
+
     @Override
-    public boolean happened(){
+    public boolean happened() {
         return killed;
     }
 
