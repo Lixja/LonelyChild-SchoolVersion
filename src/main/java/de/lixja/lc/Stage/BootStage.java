@@ -16,7 +16,7 @@
  */
 package de.lixja.lc.Stage;
 
-import de.lixja.lc.Objects.Player;
+import de.lixja.lc.GObjects.Player;
 
 /**
  *
@@ -26,30 +26,30 @@ public class BootStage extends Stage {
 
     @Override
     public void start() {
-        game.out.write("___LonelyChild___");
+        game.out.writeln("___LonelyChild___");
         if (game.getData().isTeachedStory()) {
             if (game.in.getInputWithQuestionYesNo("Do you want to skip?")) {
                 game.setStage(new StoryStage());
             }
         }
         game.sleep(1000);
-        game.out.writeSlow("Once Upon A Time...\n"
+        game.out.writelnSlow("Once Upon A Time...\n"
                 + "There Was A Little Child On A Rotten World.\n"
                 + "This World Was Once A Very Beatiful Place.\n"
                 + "But The Human Race Destroyed It.\n", 50);
-        game.out.writeSlow(". . .", 500);
+        game.out.writelnSlow(". . .", 500);
 
         if (!game.getData().isTeachedStory()) {
             String name = game.in.getInputWithQuestion("What is you name?");
             game.getData().setPlayer(new Player(name));
             game.getData().setTeachedStory(true);
             game.saveGameData();
-            game.out.write("What a wonderful name.\n"
+            game.out.writeln("What a wonderful name.\n"
                     + "Now go and save!");
             game.setStage(new StoryStage());
         } else {
-            game.out.write(game.getData().getPlayer().getName() + "!!!");
-            game.out.writeSlow("Go and save!", 100);
+            game.out.writeln(game.getData().getPlayer().getName() + "!!!");
+            game.out.writelnSlow("Go and save!", 100);
             game.setStage(new StoryStage());
         }
 

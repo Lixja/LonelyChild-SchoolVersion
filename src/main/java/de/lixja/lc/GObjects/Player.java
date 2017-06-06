@@ -1,11 +1,11 @@
-package de.lixja.lc.Objects;
+package de.lixja.lc.GObjects;
 
 public class Player extends GObject {
 
     private int position;
 
     public Player(String name) {
-        super(name, 20, 5, 5, 1);
+        super(name, 20, 5, 5, 1, 1);
         position = 0;
     }
 

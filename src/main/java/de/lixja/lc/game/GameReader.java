@@ -34,24 +34,54 @@ public class GameReader {
     public String getInput() {
         return input.next();
     }
-
-    public String getInputWithOptions(LinkedList<String> options, String question) {
+    
+    public int getInputWithOptionsV(LinkedList<String> options, String question) {
         System.out.println("---------");
-        int max = options.size();
-        for (int i = 0; i < max; i++) {
+        int max = options.size()-1;
+        for (int i = 0; i <= max; i++) {
             System.out.println("[" + i + "] - " + options.get(i));
         }
         System.out.print(question + " ");
         int answer = input.nextInt();
         if (answer > max || answer < 0) {
             System.out.println("Incorrect Input!\nTry Again!");
-            return getInputWithOptions(options, question);
+            return getInputWithOptionsV(options, question);
         }
-        return options.get(answer);
+        return answer;
+    }
+
+    public int getInputWithOptionsH(LinkedList<String> options, String question) {
+        System.out.println("------------");
+        int max = options.size()-1;
+        for (int i = 0; i <= max; i++) {
+            System.out.print("|" + options.get(i) + "|   ");
+        }
+        System.out.println();
+        for (int i = 0; i <= max; i++) {
+            for (int c = 0; c < options.get(i).length(); c++) {
+                if (c == options.get(i).length() / 2 -1) {
+                    System.out.print("[");
+                } else if (c == options.get(i).length() / 2) {
+                    System.out.print(i);
+                } else if (c == options.get(i).length() / 2 +1) {
+                    System.out.print("]");
+                }
+                System.out.print(" ");
+            }
+            System.out.print("  ");
+        }
+        System.out.println();
+        System.out.print(question + " ");
+        int answer = input.nextInt();
+        if (answer > max || answer < 0) {
+            System.out.println("Incorrect Input!\nTry Again!");
+            return getInputWithOptionsH(options, question);
+        }
+        return answer;
     }
 
     public boolean getInputWithQuestionYesNo(String question) {
-        System.out.println("---------");
+        System.out.println("------------");
         System.out.print(question + "[j/n]: ");
         String answer = input.next();
         if (answer.equals("j")) {
@@ -61,9 +91,9 @@ public class GameReader {
         }
         return getInputWithQuestionYesNo(question);
     }
-    
+
     public String getInputWithQuestion(String question) {
-        System.out.println("---------");
+        System.out.println("------------");
         System.out.print(question + " ");
         return input.next();
     }

@@ -14,34 +14,39 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package de.lixja.lc.game;
-
-import de.lixja.lc.GObjects.Player;
+package de.lixja.lc.GObjects.obj;
 
 /**
  *
  * @author Dimitrios Diamantidis &lt;Dimitri.dia@ledimi.com&gt;
  */
-public class GameData {
+public class FightOption {
     
-    private boolean teachedStory;
-    private Player player;
+    private String option;
+    private int helpValue;
 
-    public boolean isTeachedStory() {
-        return teachedStory;
+    public FightOption(String option, int helpValue){
+        this.option = option;
+        this.helpValue = helpValue;
+    }
+    
+    
+    public String getOption() {
+        return option;
     }
 
-    public void setTeachedStory(boolean teachedStory) {
-        this.teachedStory = teachedStory;
+    public void setOption(String option) {
+        this.option = option;
     }
 
-    public Player getPlayer() {
-        return player;
+    public int getHelpValue() {
+        return helpValue;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setHelpValue(int helpValue) {
+        this.helpValue = helpValue;
     }
+    
     
     
 }

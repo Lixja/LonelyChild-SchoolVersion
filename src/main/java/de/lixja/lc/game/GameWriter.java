@@ -25,8 +25,17 @@ import java.util.logging.Logger;
  */
 public class GameWriter {
     
+    
     public void write(String msg){
+        System.out.print(msg);
+    }
+        
+    public void writeln(String msg){
         System.out.println(msg);
+    }
+    
+    public void writeWall(){
+        System.out.println("-----------------");
     }
     
     public void writeSlow(String msg, int time){
@@ -38,6 +47,10 @@ public class GameWriter {
                 Logger.getLogger(GameWriter.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    public void writelnSlow(String msg, int time){
+        writeSlow(msg, time);
         System.out.println();
     }
     

@@ -14,34 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package de.lixja.lc.game;
-
-import de.lixja.lc.GObjects.Player;
+package de.lixja.lc.Stage;
 
 /**
  *
  * @author Dimitrios Diamantidis &lt;Dimitri.dia@ledimi.com&gt;
  */
-public class GameData {
+public class GameOverStage extends Stage{
     
-    private boolean teachedStory;
-    private Player player;
-
-    public boolean isTeachedStory() {
-        return teachedStory;
+    @Override
+    public void start(){
+        
     }
-
-    public void setTeachedStory(boolean teachedStory) {
-        this.teachedStory = teachedStory;
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-    
-    
 }
