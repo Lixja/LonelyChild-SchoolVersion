@@ -1,5 +1,5 @@
 package de.lixja.lc.Stage;
 
-public class StoryStage {
+public class StoryStage extends Stage {
 
 }
