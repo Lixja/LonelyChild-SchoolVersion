@@ -56,7 +56,7 @@ public class BootStage extends Stage {
             game.getData().setTeachedStory(true);
             game.saveGameData();
             game.out.writeln("Right.\n"
-                    + "Now go and save you soul!");
+                    + "Now go and save your soul!");
             game.setStage(new StoryStage());
             return;
         } else {

@@ -6,7 +6,7 @@ import java.util.LinkedList;
 public class FightStage extends Stage {
 
     public GObject enemy;
-    public boolean killed = false;
+    public int enemyState = 0;
     public LinkedList<String> options;
 
     public FightStage(GObject enemy) {
@@ -61,12 +61,18 @@ public class FightStage extends Stage {
             game.setStage(new GameOverStage());
         }
         game.out.writeWall();
-        killed = enemy.isDead();
+        if (enemy.isHelped() && !enemy.isDead()) {
+            enemyState = 0;
+        } else if (!enemy.isHelped() && enemy.isDead()) {
+            enemyState = 1;
+        } else if (enemy.isHelped() && enemy.isDead()) {
+            enemyState = 2;
+        }
     }
 
     @Override
-    public boolean happened() {
-        return killed;
+    public int happened() {
+        return enemyState;
     }
 
     public void printStats(GObject go) {

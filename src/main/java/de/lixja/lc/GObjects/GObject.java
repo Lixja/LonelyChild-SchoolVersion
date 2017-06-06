@@ -49,7 +49,7 @@ public class GObject {
     }
     
     public boolean isLevelUp(){
-        if(exp > (lv * atk)/def){
+        if(exp > (lv * atk)){
             Random rn = new Random();
             rn.setSeed(new Date().getTime());
             lv++;
@@ -57,7 +57,8 @@ public class GObject {
             chp = hp;
             atk += (int) (rn.nextDouble() * lv) +1;
             def += (int) (rn.nextDouble() * lv)+1;
-            exp = 0;
+            exp -= (lv * atk);
+            isLevelUp();
             return true;
         }
         return false;

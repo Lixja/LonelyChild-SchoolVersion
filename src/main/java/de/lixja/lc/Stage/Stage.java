@@ -34,8 +34,8 @@ public class Stage {
         this.game = game;
     }
     
-    public boolean happened(){
-        return false;
+    public int happened(){
+        return 0;
     }
     
 }

@@ -53,7 +53,7 @@ public class Game {
         }
     }
 
-    public boolean setStage(Stage stage) {
+    public int setStage(Stage stage) {
         currentStage = stage;
         currentStage.setGame(this);
         currentStage.start();
