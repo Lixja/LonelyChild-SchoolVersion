@@ -82,9 +82,9 @@ public class GameReader {
 
     public boolean getInputWithQuestionYesNo(String question) {
         System.out.println("------------");
-        System.out.print(question + "[j/n]: ");
+        System.out.print(question + "[y/n]: ");
         String answer = input.next();
-        if (answer.equals("j")) {
+        if (answer.equals("y")) {
             return true;
         } else if (answer.equals("n")) {
             return false;

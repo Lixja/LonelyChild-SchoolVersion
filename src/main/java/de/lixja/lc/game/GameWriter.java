@@ -49,6 +49,10 @@ public class GameWriter {
         }
     }
     
+    public void writeS(String msg){
+        writeSlow(msg+"\n", 75);
+    }
+    
     public void writelnSlow(String msg, int time){
         writeSlow(msg, time);
         System.out.println();

@@ -1,13 +1,17 @@
 package de.lixja.lc.GObjects;
 
+import de.lixja.lc.GObjects.obj.FightOption;
+
 public class Snake extends GObject {
 
     public Snake() {
-        super("Snake", 30, 1, 15, 3, 1);
-        startSentence = "A Snake, You don't think that he wants to attack you.";
+        super("Snake", 15, 1, 1, 3, 11);
+        startSentence = "A Snake, An angry Snake.";
         dieSentence = "The Snake tries to rest in peace.\n Do you have fun?";
-        neutralSentence = "The Snakes thanks you.";
+        neutralSentence = "The Snakes apologizes to you.";
         sentences.add("The Snake seems to wanna hurt you!");
+        fightOptions.add(new FightOption("Mercy", 1));
+        fightOptions.add(new FightOption("Talk", 10));
     }
 
 }

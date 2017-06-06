@@ -37,21 +37,31 @@ public class BootStage extends Stage {
         game.out.writelnSlow("Once Upon A Time...\n"
                 + "There Was A Little Child On A Rotten World.\n"
                 + "This World Was Once A Very Beatiful Place.\n"
-                + "But The Human Race Destroyed It.\n", 50);
-        game.out.writelnSlow(". . .", 500);
+                + "But The Human Race Destroyed It.\n", 75);
+        game.out.writelnSlow(". . .", 400);
+        game.out.writeSlow("Every Human Was Bad.\n"
+                + "His Family Punished Him For Not Working Fast Enough.\n"
+                + "His \"Friends\" Bullied Him.\n"
+                + "His Teacher Shouted At Him With No Reason.\n"
+                + "Even People He Did Not Knew Bullied Him.\n"
+                + "WHY!!!"
+                + "There Wasn't A Reason For Turtiring Him.\n"
+                + "But Everybody Did It.\n"
+                + "So He Run Away.\n",75);
+        game.out.writeSlow("Far Far Away\n\n", 125);
 
         if (!game.getData().isTeachedStory()) {
-            String name = game.in.getInputWithQuestion("What is you name?");
+            String name = game.in.getInputWithQuestion("What was his name?");
             game.getData().setPlayer(new Player(name));
             game.getData().setTeachedStory(true);
             game.saveGameData();
-            game.out.writeln("What a wonderful name.\n"
-                    + "Now go and save!");
+            game.out.writeln("Right.\n"
+                    + "Now go and save you soul!");
             game.setStage(new StoryStage());
             return;
         } else {
             game.out.writeln(game.getData().getPlayer().getName() + "!!!");
-            game.out.writelnSlow("Go and save!", 100);
+            game.out.writelnSlow("Go and save yourself!", 100);
             game.setStage(new StoryStage());
         }
 

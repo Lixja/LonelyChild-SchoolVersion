@@ -16,6 +16,7 @@ public class GObject {
     private int exp;
     private int neededhelp;
     protected LinkedList<String> sentences;
+    protected int positionOfSentences;
     protected LinkedList<FightOption> fightOptions;
     protected String startSentence;
     protected String dieSentence;
@@ -31,6 +32,7 @@ public class GObject {
         this.neededhelp = neededhelp;
         this.exp = 0;
         sentences = new LinkedList<>();
+        positionOfSentences = 0;
         fightOptions = new LinkedList<>();
     }
     
@@ -142,6 +144,23 @@ public class GObject {
     public void setSentences(LinkedList<String> sentences) {
         this.sentences = sentences;
     }
+
+    public int getNeededhelp() {
+        return neededhelp;
+    }
+
+    public void setNeededhelp(int neededhelp) {
+        this.neededhelp = neededhelp;
+    }
+
+    public String nextSentence() {
+        if(positionOfSentences < sentences.size()){
+            positionOfSentences++;
+            return sentences.get(positionOfSentences-1);
+        }
+        return sentences.get(positionOfSentences-1);
+    }  
+    
 
     public LinkedList<FightOption> getFightOptions() {
         return fightOptions;
