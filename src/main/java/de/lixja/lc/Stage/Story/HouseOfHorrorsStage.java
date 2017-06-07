@@ -16,15 +16,13 @@
  */
 package de.lixja.lc.Stage.Story;
 
-import de.lixja.lc.GObjects.Flowey;
+import de.lixja.lc.GObjects.Deamon;
 import de.lixja.lc.GObjects.Ghost;
 import de.lixja.lc.GObjects.Mystery;
 import de.lixja.lc.GObjects.Player;
 import de.lixja.lc.GObjects.Soul;
-import de.lixja.lc.GObjects.Tiger;
 import de.lixja.lc.GObjects.Vampir;
 import de.lixja.lc.GObjects.Werewolf;
-import de.lixja.lc.GObjects.Wolf;
 import de.lixja.lc.Stage.FightStage;
 import de.lixja.lc.Stage.Stage;
 import java.util.Arrays;
@@ -77,12 +75,6 @@ public class HouseOfHorrorsStage extends Stage {
                 case 603:
                     gthree();
                     break;
-                case 604:
-                    gfour();
-                    break;
-                case 605:
-                    gfive();
-                    break;
             }
             game.saveGameData();
         }
@@ -104,17 +96,28 @@ public class HouseOfHorrorsStage extends Stage {
 
     private void one() {
         game.out.writeWall();
-        List<String> options = Arrays.asList("Look around", "Scream", "Hit the door");
+        List<String> options;
+        if (player.isSavedSoul()) {
+            options = Arrays.asList("Look around", "Call for help", "Hit the door");
+        } else {
+            options = Arrays.asList("Look around", "Scream", "Hit the door");
+        }
         int answer = game.in.getInputWithOptionsH(options, "What do you wanna do?");
         switch (answer) {
             case 0:
                 player.setPosition(102);
                 break;
             case 1:
-                game.out.writeS("You hear a scream from somebody else.");
-                if (game.setStage(new FightStage(new Soul())) == 1) {
-                    player.kill(8);
-                    player.setPosition(601);
+                if (!player.isSavedSoul()) {
+                    game.out.writeS("You hear a scream from somebody else.");
+                    if (game.setStage(new FightStage(new Soul())) == 1) {
+                        player.kill(8);
+                        player.setPosition(603);
+                    } else {
+                        player.setSavedSoul(true);
+                    }
+                } else {
+                    player.setPosition(103);
                 }
                 break;
             case 2:
@@ -154,9 +157,16 @@ public class HouseOfHorrorsStage extends Stage {
             }
         }
     }
-    
-    private void three(){
-        
+
+    private void three() {
+        game.out.writeS("A soul appeared to help you.\n"
+                + "You close your eyes.\n"
+                + "You open them again.\n"
+                + "You see\n"
+                + "You see your ... home.\n\n"
+                + "Why am i back at this place you ask.\n"
+                + "Soul: Believe me, this time things will change.");
+        player.setPosition(200);
     }
 
     private void gzero() {
@@ -197,12 +207,13 @@ public class HouseOfHorrorsStage extends Stage {
                 break;
             case 2:
                 game.out.writeS("You and flowey destroy the door.\n"
-                        + "Something appears in front of you.\n"
-                        + "Flowey screams...");
-                if(game.setStage(new FightStage(new Mystery()))==1){
+                        + "Something appears in front of you.\n");
+                if (game.setStage(new FightStage(new Mystery())) == 1) {
                     player.kill(9);
-                }else{
-
+                    player.setPosition(601);
+                    game.out.writeS("Mystery built a new door.");
+                } else {
+                    player.setPosition(601);
                 }
                 break;
         }
@@ -238,23 +249,26 @@ public class HouseOfHorrorsStage extends Stage {
         } else if (answer == 3) {
             if (game.setStage(new FightStage(new Soul())) == 1) {
                 player.kill(8);
-                player.setPosition(601);
+                player.setPosition(603);
             } else {
-                player.setPosition(601);
+                player.setPosition(200);
             }
         }
     }
 
-    private void gthree() {
-
+    public void gthree() {
+        if (game.setStage(new FightStage(new Deamon())) == 1) {
+            player.setPosition(604);
+        }
     }
-
-    private void gfour() {
-
+    
+    public void gfour(){
+        game.out.writeS("The house starts to burn.\n"
+                + "Mystery opens the doort.\n"
+                + "You left the house.\n"
+                + "After some minutes there is no house at this place any more.\n"
+                + "There is only a deamon\n\n");
+        game.out.writelnSlow("YOU", 200);
+        player.setPosition(700);
     }
-
-    private void gfive() {
-
-    }
-
 }

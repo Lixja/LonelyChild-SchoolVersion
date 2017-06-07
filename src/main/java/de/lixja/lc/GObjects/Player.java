@@ -7,6 +7,7 @@ public class Player extends GObject {
     private int position;
     private boolean[] killedEnemies = new boolean[21];
     private boolean consistsFlowey;
+    private boolean savedSoul;
 
     public Player(String name) {
         super(name, 10, 2, 3, 1, 1);
@@ -36,6 +37,16 @@ public class Player extends GObject {
     public void setConsistsFlowey(boolean consistsFlowey) {
         this.consistsFlowey = consistsFlowey;
     }
+
+    public boolean isSavedSoul() {
+        return savedSoul;
+    }
+
+    public void setSavedSoul(boolean savedSoul) {
+        this.savedSoul = savedSoul;
+    }
+    
+    
     
 
 }

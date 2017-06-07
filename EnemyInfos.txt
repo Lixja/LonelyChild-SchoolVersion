@@ -7,4 +7,5 @@
 6. Vampir 50hp 1def 10atk
 7. Werewolf 50hp 10def 1atk
 8. Soul	5hp 15def 10atk
+9. Deamon 99hp 30def 30atk
 9. Mystery 100hp 10def 10atk
