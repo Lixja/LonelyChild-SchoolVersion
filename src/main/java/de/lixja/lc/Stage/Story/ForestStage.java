@@ -106,7 +106,7 @@ public class ForestStage extends Stage {
         }
     }
 
-    public void zero() {
+    private void zero() {
         game.out.writeS("You look around.");
         game.sleep(1500);
         game.out.writeS("You don't know were you are.\n"
@@ -121,7 +121,7 @@ public class ForestStage extends Stage {
         player.setPosition(1);
     }
 
-    public void one() {
+    private void one() {
         if (game.setStage(new FightStage(new MasterStone())) == 1) {
             player.kill(0);
             player.setPosition(502);
@@ -130,7 +130,7 @@ public class ForestStage extends Stage {
         }
     }
 
-    public void two() {
+    private void two() {
         game.out.writeS("No.\n");
         game.sleep(500);
         game.out.writeS("I will not be like them.\n"
@@ -150,7 +150,7 @@ public class ForestStage extends Stage {
         player.setPosition(3);
     }
 
-    public void three() {
+    private void three() {
         boolean choice = false;
         if (game.setStage(new FightStage(new Snake())) == 1) {
             player.kill(1);
@@ -172,7 +172,7 @@ public class ForestStage extends Stage {
         }
     }
 
-    public void four() {
+    private void four() {
         game.out.writeS("Snake: ...\n"
                 + "Snake: I am sorry I attacked you.\n"
                 + "Snake: Every human i saw until now was bad.\n"
@@ -184,7 +184,7 @@ public class ForestStage extends Stage {
         player.setPosition(5);
     }
 
-    public void five() {
+    private void five() {
         List<String> options;
         if (player.getKilled(0)) {  //Check if Stone is already killed.
             options = Arrays.asList("Look around.", "Search an exit", "Talk with the Snake");
@@ -213,7 +213,7 @@ public class ForestStage extends Stage {
         }
     }
 
-    public void six() {
+    private void six() {
         Random rn = new Random();
         rn.setSeed(new Date().getTime());
         game.out.writeS("You look around.");
@@ -245,7 +245,7 @@ public class ForestStage extends Stage {
         }
     }
 
-    public void seven() {
+    private void seven() {
         game.out.writeS("You go the way back.\n"
                 + "You don't know exactly what you will do, but this was to crazy for you\n"
                 + "You see a flower at the ground.\n");
@@ -259,21 +259,21 @@ public class ForestStage extends Stage {
         }
     }
 
-    public void eight() {
+    private void eight() {
         game.out.writeS("Why does the flower know me...\n");
         game.out.writeS("I think is should leave the forest.\n"
                 + "I am scared.\n");
         player.setPosition(100);
     }
 
-    public void gtwo() {
+    private void gtwo() {
         game.out.writeS("Such an idiot.\n"
                 + "After all i got, i know how to punish someone...\n\n"
                 + "You go around and see a snake.\n");
         player.setPosition(503);
     }
 
-    public void gthree() {
+    private void gthree() {
         if (game.setStage(new FightStage(new Snake())) == 1) {
             player.kill(1);
             player.setPosition(504);
@@ -282,12 +282,12 @@ public class ForestStage extends Stage {
         }
     }
 
-    public void gfour() {
+    private void gfour() {
         game.out.writeS("You have fun doing this.");
         player.setPosition(505);
     }
 
-    public void gfive() {
+    private void gfive() {
         List<String> options = Arrays.asList("Look around for your next victim", "Search for an Exit", "Eat a pice of the Snake");
         int answer = game.in.getInputWithOptionsV(options, "What do you wanna do?");
         switch (answer) {
@@ -316,7 +316,7 @@ public class ForestStage extends Stage {
         }
     }
 
-    public void gsix() {
+    private void gsix() {
         Random rn = new Random();
         rn.setSeed(new Date().getTime());
         game.out.writeS("You look around.");
@@ -348,7 +348,7 @@ public class ForestStage extends Stage {
         }
     }
 
-    public void gseven() {
+    private void gseven() {
         game.out.writeS("What does the flower think who i am?\n"
                 + "Now it's my time to rule this world.\n"
                 + "*Laugh Laugh*\n");
@@ -358,7 +358,7 @@ public class ForestStage extends Stage {
         player.setPosition(509);
     }
 
-    public void geight() {
+    private void geight() {
         game.out.writeS("Flowey: We will fusion.\n"
                 + "Flowey: We will be the strongest monster on earth\n"
                 + "Flowey: Nobody will be able to beat us.\n\n");
@@ -375,7 +375,7 @@ public class ForestStage extends Stage {
         player.setPosition(509);
     }
 
-    public void gnine() {
+    private void gnine() {
         if (player.isConsistsFlowey()) {
             game.out.writeS("You and Flowey are leaving the forest.");
             player.setPosition(600);
