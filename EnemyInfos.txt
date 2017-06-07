@@ -3,3 +3,8 @@
 2. Wolf 10hp 4def 4atk
 3. Tiger 12hp 1def 3atk
 4. Flowey 20hp 1def 4atk
+5. Ghost 30hp 10def 10atk
+6. Vampir 50hp 1def 10atk
+7. Werewolf 50hp 10def 1atk
+8. Soul	5hp 15def 10atk
+9. Mystery 100hp 10def 10atk

@@ -16,15 +16,18 @@
  */
 package de.lixja.lc.game;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Dimitrios Diamantidis &lt;Dimitri.dia@ledimi.com&gt;
  */
-public class GameReader {
+public class GameReader{
 
     Scanner input;
 
@@ -34,6 +37,19 @@ public class GameReader {
 
     public String getInput() {
         return input.next();
+    }
+    
+    public void get(){
+        try {
+            System.in.read();
+        } catch (IOException ex) {
+            Logger.getLogger(GameReader.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void next(){
+        System.out.println("Press any key to continiue...");
+        get();
     }
     
     public int getInputWithOptionsV(List<String> options, String question) {
@@ -97,6 +113,7 @@ public class GameReader {
         System.out.println("------------");
         System.out.print(question + " ");
         return input.next();
-    }
+    }   
+    
 
 }

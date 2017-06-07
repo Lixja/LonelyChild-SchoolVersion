@@ -1,7 +1,9 @@
 package de.lixja.lc.Stage;
 
 import de.lixja.lc.GObjects.GObject;
+import java.util.Date;
 import java.util.LinkedList;
+import java.util.Random;
 
 public class FightStage extends Stage {
 
@@ -40,7 +42,7 @@ public class FightStage extends Stage {
                 case 2:
                     break;
             }
-            if (!enemy.isDead() && !enemy.isHelped()) {
+            if (!enemy.isDead() && !enemy.isHelped() && !attackBlocked(enemy.getLv())) {
                 game.out.writeln(enemy.getName() + " attacked you!\nYou got " + player.damage(enemy.getAtk()) + " damage.");
                 game.out.writeWall();
                 game.out.writeS(enemy.nextSentence());
@@ -68,6 +70,23 @@ public class FightStage extends Stage {
         } else if (enemy.isHelped() && enemy.isDead()) {
             enemyState = 2;
         }
+    }
+
+    private boolean attackBlocked(int lv) {
+        game.out.writeS("Press the button when the X appears.");
+        Random rn = new Random();
+        rn.setSeed(new Date().getTime());
+        for (int i = 0; i < lv; i++) {
+            game.sleep(rn.nextInt(2100));
+            Date xTime = new Date();
+            game.out.write("X");
+            game.in.get();
+            Date yTime = new Date();
+            if(xTime.getTime() + 750 < yTime.getTime()){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
