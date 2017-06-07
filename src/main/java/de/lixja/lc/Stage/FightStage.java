@@ -40,7 +40,7 @@ public class FightStage extends Stage {
                     break;
             }
             if (!enemy.isDead() && !enemy.isHelped()) {
-                if (!attackBlocked(enemy.getLv())) {
+                if (!attackBlocked(enemy.getLv(), (enemy.getAtk() * enemy.getLv()), enemy.getHp())) {
                     game.out.writeln(enemy.getName() + " attacked you!\nYou got " + player.damage(enemy.getAtk()) + " damage.");
                 }
                 game.out.writeWall();
@@ -71,17 +71,17 @@ public class FightStage extends Stage {
         }
     }
 
-    private boolean attackBlocked(int lv) {
+    private boolean attackBlocked(int lv, int distime, int time) {
         game.out.writeS("Press the button when the X appears.");
         Random rn = new Random();
         rn.setSeed(new Date().getTime());
         for (int i = 0; i < lv; i++) {
-            game.sleep(rn.nextInt(2100));
+            game.sleep(rn.nextInt(2100 - distime));
             Date xTime = new Date();
             game.out.write("X");
             game.in.get();
             Date yTime = new Date();
-            if (xTime.getTime() + 750 < yTime.getTime()) {
+            if (xTime.getTime() + 750 - time < yTime.getTime()) {
                 return false;
             }
         }
