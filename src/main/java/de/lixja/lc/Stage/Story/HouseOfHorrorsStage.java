@@ -209,7 +209,7 @@ public class HouseOfHorrorsStage extends Stage {
                 game.out.writeS("You and flowey destroy the door.\n"
                         + "Something appears in front of you.\n");
                 if (game.setStage(new FightStage(new Mystery())) == 1) {
-                    player.kill(9);
+                    player.kill(10);
                     player.setPosition(601);
                     game.out.writeS("Mystery built a new door.");
                 } else {
@@ -256,13 +256,14 @@ public class HouseOfHorrorsStage extends Stage {
         }
     }
 
-    public void gthree() {
+    private void gthree() {
         if (game.setStage(new FightStage(new Deamon())) == 1) {
+            player.kill(9);
             player.setPosition(604);
         }
     }
     
-    public void gfour(){
+    private void gfour(){
         game.out.writeS("The house starts to burn.\n"
                 + "Mystery opens the doort.\n"
                 + "You left the house.\n"

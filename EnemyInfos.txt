@@ -9,3 +9,5 @@
 8. Soul	5hp 15def 10atk
 9. Deamon 99hp 30def 30atk
 9. Mystery 100hp 10def 10atk
+10. Pupil 50hp 10def 30atk
+11. Teacher 75hp 25def 45atk
