@@ -25,7 +25,7 @@ import de.lixja.lc.GObjects.obj.FightOption;
 public class Werewolf extends GObject{
     
     public Werewolf() {
-        super("Werewolf", 50, 10, 1, 5, 15);
+        super("Werewolf", 50, 10, 1, 8, 15);
         startSentence = "Uhhh, a Werewolf ^-^.";
         dieSentence = "He looks like his father from the forest.";
         neutralSentence = "He looks kind of cute.";

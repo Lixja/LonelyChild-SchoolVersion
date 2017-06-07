@@ -5,7 +5,7 @@ import de.lixja.lc.GObjects.obj.FightOption;
 public class Vampir extends GObject {
 
     public Vampir() {
-        super("Vampir", 50, 1, 10, 5, 15);
+        super("Vampir", 50, 1, 10, 7, 15);
         startSentence = "Not a human.\nOh it's a vampir.";
         dieSentence = "*Scream and decays into ash.";
         neutralSentence = "Vampir: You was delicious.";

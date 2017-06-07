@@ -47,6 +47,10 @@ public class GameReader{
         }
     }
     
+    public char getChar(){
+        return input.next().charAt(0);
+    }
+    
     public void next(){
         System.out.println("Press any key to continiue...");
         get();

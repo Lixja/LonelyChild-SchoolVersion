@@ -5,7 +5,7 @@ import de.lixja.lc.GObjects.obj.FightOption;
 public class Soul extends GObject {
 
     public Soul() {
-        super("Soul", 5, 15, 10, 5, 100);
+        super("Soul", 5, 15, 10, 9, 100);
         startSentence = "Wow, i am really going crazy.";
         dieSentence = "The soul transforms into a deamon.";
         neutralSentence = "The soul finds home.";
