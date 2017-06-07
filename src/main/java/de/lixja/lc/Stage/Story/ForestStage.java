@@ -136,7 +136,7 @@ public class ForestStage extends Stage {
         game.out.writeS("I will not be like them.\n"
                 + "I will be an other person\n"
                 + "Even if they tortured me like that.\n");
-        game.sleep(200);
+        game.in.next();
         game.out.writeS("You ask the stone why you can hear him.\n\n"
                 + "The stone tells you you are in the forest of dreams.\n"
                 + "The only place on earth that can be enter by a poor soul.\n\n"
@@ -264,6 +264,7 @@ public class ForestStage extends Stage {
         game.out.writeS("I think is should leave the forest.\n"
                 + "I am scared.\n");
         player.setPosition(100);
+        game.in.next();
     }
 
     private void gtwo() {
@@ -356,6 +357,7 @@ public class ForestStage extends Stage {
         player.kill(4);
         game.out.writeS("You and Flowey are leaving the forest");
         player.setPosition(509);
+        game.in.next();
     }
 
     private void geight() {
@@ -378,11 +380,11 @@ public class ForestStage extends Stage {
     private void gnine() {
         if (player.isConsistsFlowey()) {
             game.out.writeS("You and Flowey are leaving the forest.");
-            player.setPosition(600);
         } else {
             game.out.writeS("You are leaving the forest now.");
-            player.setPosition(600);
         }
+        player.setPosition(600);
+        game.in.next();
     }
 
 }

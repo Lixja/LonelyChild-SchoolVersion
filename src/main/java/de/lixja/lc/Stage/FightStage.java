@@ -44,6 +44,7 @@ public class FightStage extends Stage {
             }
             if (!enemy.isDead() && !enemy.isHelped() && !attackBlocked(enemy.getLv())) {
                 game.out.writeln(enemy.getName() + " attacked you!\nYou got " + player.damage(enemy.getAtk()) + " damage.");
+            }else if(!enemy.isDead() && enemy.isHelped()){
                 game.out.writeWall();
                 game.out.writeS(enemy.nextSentence());
                 game.out.writeWall();
@@ -82,7 +83,7 @@ public class FightStage extends Stage {
             game.out.write("X");
             game.in.get();
             Date yTime = new Date();
-            if(xTime.getTime() + 750 < yTime.getTime()){
+            if (xTime.getTime() + 750 < yTime.getTime()) {
                 return false;
             }
         }

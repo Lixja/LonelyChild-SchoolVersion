@@ -5,7 +5,7 @@ import de.lixja.lc.GObjects.obj.FightOption;
 public class Tiger extends GObject {
 
     public Tiger() {
-        super("Tiger", 12, 1, 3, 4, 1);
+        super("Tiger", 12, 1, 3, 4, 10);
         startSentence = "Look there is a cat. Oh it's an tiger\n"
                 + "Look at this tiger!";
         dieSentence = "When i was young i wanted to have a cat.";
