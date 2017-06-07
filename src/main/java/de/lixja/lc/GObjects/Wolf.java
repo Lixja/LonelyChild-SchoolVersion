@@ -7,7 +7,7 @@ public class Wolf extends GObject {
     public Wolf() {
         super("Wolf", 10, 2, 4, 3, 5);
         startSentence = "A Wolf, he looks cute and hungry.";
-        dieSentence = "He looks still cute, even if i see his intestines.";
+        dieSentence = "He looks still cute, even if you see his intestines.";
         neutralSentence = "He still wants to be pet.";
         sentences.add("*heckle*");
         fightOptions.add(new FightOption("Mercy", 1));

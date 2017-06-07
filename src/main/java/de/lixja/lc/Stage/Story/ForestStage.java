@@ -96,6 +96,11 @@ public class ForestStage extends Stage {
                 case 507:
                     gseven();
                     break;
+                case 508:
+                    geight();
+                    break;
+                case 509:
+                    gnine();
             }
             game.saveGameData();
         }
@@ -130,7 +135,7 @@ public class ForestStage extends Stage {
         game.sleep(500);
         game.out.writeS("I will not be like them.\n"
                 + "I will be an other person\n"
-                + "Even if they tortered me like that.\n");
+                + "Even if they tortured me like that.\n");
         game.sleep(200);
         game.out.writeS("You ask the stone why you can hear him.\n\n"
                 + "The stone tells you you are in the forest of dreams.\n"
@@ -213,31 +218,30 @@ public class ForestStage extends Stage {
         rn.setSeed(new Date().getTime());
         game.out.writeS("You look around.");
         game.out.writeSlow(". . .", 500);
-        int answer = (int) (rn.nextDouble() * 3);
-        switch (answer) {
-            case 0:
-                if (game.setStage(new FightStage(new Flowey())) == 1) {
-                    player.setPosition(507);
-                } else {
-                    player.setPosition(8);
-                }
-                break;
-            case 1:
-                if (game.setStage(new FightStage(new Tiger())) == 1) {
-                    player.setPosition(5);
-                    player.kill(4);
-                } else {
-                    player.setPosition(5);
-                }
-                break;
-            case 2:
-                if (game.setStage(new FightStage(new Wolf())) == 1) {
-                    player.kill(3);
-                    player.setPosition(5);
-                } else {
-                    player.setPosition(5);
-                }
-                break;
+        int answer = (int) (rn.nextDouble() * 10);
+        if (answer < 4) {
+            if (game.setStage(new FightStage(new Wolf())) == 1) {
+                player.kill(2);
+                player.setPosition(505);
+            } else {
+                player.setPosition(5);
+            }
+        } else if (answer < 9 && answer >= 4) {
+            if (game.setStage(new FightStage(new Tiger())) == 1) {
+                player.setPosition(505);
+                player.kill(3);
+            } else {
+                player.setPosition(5);
+            }
+        } else if (answer == 9) {
+            int resFlowey = game.setStage(new FightStage(new Flowey()));
+            if (resFlowey == 2) {
+                player.setPosition(508);
+            } else if (resFlowey == 1) {
+                player.setPosition(507);
+            } else if (resFlowey == 0) {
+                player.setPosition(8);
+            }
         }
     }
 
@@ -245,15 +249,21 @@ public class ForestStage extends Stage {
         game.out.writeS("You go the way back.\n"
                 + "You don't know exactly what you will do, but this was to crazy for you\n"
                 + "You see a flower at the ground.\n");
-        if (game.setStage(new FightStage(new Flowey())) == 1) {
+        int resFlowey = game.setStage(new FightStage(new Flowey()));
+        if (resFlowey == 2) {
             player.setPosition(508);
-        } else {
+        } else if (resFlowey == 1) {
+            player.setPosition(507);
+        } else if (resFlowey == 0) {
             player.setPosition(8);
         }
     }
 
     public void eight() {
         game.out.writeS("Why does the flower know me...\n");
+        game.out.writeS("I think is should leave the forest.\n"
+                + "I am scared.\n");
+        player.setPosition(100);
     }
 
     public void gtwo() {
@@ -278,13 +288,26 @@ public class ForestStage extends Stage {
     }
 
     public void gfive() {
-        List<String> options = Arrays.asList("Look around for your next victim", "Eat a pice of the Snake");
+        List<String> options = Arrays.asList("Look around for your next victim", "Search for an Exit", "Eat a pice of the Snake");
         int answer = game.in.getInputWithOptionsV(options, "What do you wanna do?");
         switch (answer) {
             case 0:
                 player.setPosition(506);
                 break;
             case 1:
+                game.out.writeS("You decided to leave this forest.\n"
+                        + "But you feel like somebody is following you.\n"
+                        + "You see a Flower\n");
+                int resFlowey = game.setStage(new FightStage(new Flowey()));
+                if (resFlowey == 2) {
+                    player.setPosition(508);
+                } else if (resFlowey == 1) {
+                    player.setPosition(507);
+                } else if (resFlowey == 0) {
+                    player.setPosition(8);
+                }
+                break;
+            case 2:
                 game.out.writeS("You recovered you hp");
                 player.setChp(player.getHp());
                 break;
@@ -298,36 +321,68 @@ public class ForestStage extends Stage {
         rn.setSeed(new Date().getTime());
         game.out.writeS("You look around.");
         game.out.writeSlow(". . .", 500);
-        int answer = (int) (rn.nextDouble() * 3);
-        switch (answer) {
-            case 0:
-                if (game.setStage(new FightStage(new Flowey())) == 1) {
-                    player.setPosition(507);
-                } else {
-                    player.setPosition(8);
-                }
-                break;
-            case 1:
-                if (game.setStage(new FightStage(new Tiger())) == 1) {
-                    player.kill(4);
-                    player.setPosition(505);
-                } else {
-                    player.setPosition(505);
-                }
-                break;
-            case 2:
-                if (game.setStage(new FightStage(new Wolf())) == 1) {
-                    player.kill(3);
-                    player.setPosition(505);
-                } else {
-                    player.setPosition(505);
-                }
-                break;
+        int answer = (int) (rn.nextDouble() * 10);
+        if (answer < 4) {
+            if (game.setStage(new FightStage(new Wolf())) == 1) {
+                player.kill(2);
+                player.setPosition(505);
+            } else {
+                player.setPosition(505);
+            }
+        } else if (answer < 9 && answer >= 4) {
+            if (game.setStage(new FightStage(new Tiger())) == 1) {
+                player.setPosition(505);
+                player.kill(3);
+            } else {
+                player.setPosition(505);
+            }
+        } else if (answer == 9) {
+            int resFlowey = game.setStage(new FightStage(new Flowey()));
+            if (resFlowey == 2) {
+                player.setPosition(508);
+            } else if (resFlowey == 1) {
+                player.setPosition(507);
+            } else if (resFlowey == 0) {
+                player.setPosition(8);
+            }
         }
     }
 
     public void gseven() {
+        game.out.writeS("What does the flower think who i am?\n"
+                + "Now it's my time to rule this world.\n"
+                + "*Laugh Laugh*\n");
+        game.out.writelnSlow("I will control everything.", 125);
+        player.kill(4);
+        game.out.writeS("You and Flowey are leaving the forest");
+        player.setPosition(509);
+    }
 
+    public void geight() {
+        game.out.writeS("Flowey: We will fusion.\n"
+                + "Flowey: We will be the strongest monster on earth\n"
+                + "Flowey: Nobody will be able to beat us.\n\n");
+        game.out.writeS("You feel roots climbing your leg up.\n"
+                + "You consist now of FLOWEY.");
+        player.setName("Fl" + player.getName().toUpperCase());
+        for (int i = 0; i < 10; i++) {
+            player.addExp(new Flowey());
+        }
+        if (player.isLevelUp()) {
+            game.out.writeS(player.getName() + " reached lv" + player.getLv() + ".");
+        }
+        player.setConsistsFlowey(true);
+        player.setPosition(509);
+    }
+
+    public void gnine() {
+        if (player.isConsistsFlowey()) {
+            game.out.writeS("You and Flowey are leaving the forest.");
+            player.setPosition(600);
+        } else {
+            game.out.writeS("You are leaving the forest now.");
+            player.setPosition(600);
+        }
     }
 
 }

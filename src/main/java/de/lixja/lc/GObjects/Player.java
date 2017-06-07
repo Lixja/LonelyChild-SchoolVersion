@@ -6,6 +6,7 @@ public class Player extends GObject {
 
     private int position;
     private boolean[] killedEnemies = new boolean[21];
+    private boolean consistsFlowey;
 
     public Player(String name) {
         super(name, 10, 2, 3, 1, 1);
@@ -27,5 +28,14 @@ public class Player extends GObject {
     public boolean getKilled(int pos){
         return killedEnemies[pos];
     }
+
+    public boolean isConsistsFlowey() {
+        return consistsFlowey;
+    }
+
+    public void setConsistsFlowey(boolean consistsFlowey) {
+        this.consistsFlowey = consistsFlowey;
+    }
+    
 
 }

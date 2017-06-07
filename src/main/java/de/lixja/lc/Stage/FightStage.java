@@ -41,7 +41,7 @@ public class FightStage extends Stage {
                     break;
             }
             if (!enemy.isDead() && !enemy.isHelped()) {
-                game.out.writeln(enemy.getName() + " attacked you!\nYou got " + player.damage(enemy.getAtk()) + ".");
+                game.out.writeln(enemy.getName() + " attacked you!\nYou got " + player.damage(enemy.getAtk()) + " damage.");
                 game.out.writeWall();
                 game.out.writeS(enemy.nextSentence());
                 game.out.writeWall();

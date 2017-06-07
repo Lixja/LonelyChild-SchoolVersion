@@ -23,7 +23,7 @@ import de.lixja.lc.GObjects.Player;
  * @author Dimitrios Diamantidis &lt;Dimitri.dia@ledimi.com&gt;
  */
 public class GameData {
-    
+
     private boolean teachedStory;
     private Player player;
 
@@ -34,7 +34,7 @@ public class GameData {
     public void setTeachedStory(boolean teachedStory) {
         this.teachedStory = teachedStory;
     }
-
+    
     public Player getPlayer() {
         return player;
     }
@@ -42,6 +42,5 @@ public class GameData {
     public void setPlayer(Player player) {
         this.player = player;
     }
-    
-    
+
 }
