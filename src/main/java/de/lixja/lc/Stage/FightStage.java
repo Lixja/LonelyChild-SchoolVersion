@@ -16,7 +16,6 @@ public class FightStage extends Stage {
         options = new LinkedList<>();
         options.add("FIGHT");
         options.add("ACT");
-        options.add("ITEM");
     }
 
     @Override
@@ -39,12 +38,11 @@ public class FightStage extends Stage {
                     int i = game.in.getInputWithOptionsH(enemy.getFightOptionsAsString(), "Choice");
                     enemy.help(i);
                     break;
-                case 2:
-                    break;
             }
-            if (!enemy.isDead() && !enemy.isHelped() && !attackBlocked(enemy.getLv())) {
-                game.out.writeln(enemy.getName() + " attacked you!\nYou got " + player.damage(enemy.getAtk()) + " damage.");
-            }else if(!enemy.isDead() && enemy.isHelped()){
+            if (!enemy.isDead() && !enemy.isHelped()) {
+                if (!attackBlocked(enemy.getLv())) {
+                    game.out.writeln(enemy.getName() + " attacked you!\nYou got " + player.damage(enemy.getAtk()) + " damage.");
+                }
                 game.out.writeWall();
                 game.out.writeS(enemy.nextSentence());
                 game.out.writeWall();
