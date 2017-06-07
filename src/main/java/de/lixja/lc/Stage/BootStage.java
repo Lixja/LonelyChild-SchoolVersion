@@ -51,7 +51,7 @@ public class BootStage extends Stage {
         game.out.writeSlow("Far Far Away\n\n", 125);
 
         if (!game.getData().isTeachedStory()) {
-            String name = game.in.getInputWithQuestion("What was his name?");
+            String name = selectName();
             game.getData().setPlayer(new Player(name));
             game.getData().setTeachedStory(true);
             game.saveGameData();
@@ -65,6 +65,51 @@ public class BootStage extends Stage {
             game.setStage(new StoryStage());
         }
 
+    }
+    
+    private String selectName(){
+        String name = game.in.getInputWithQuestion("What was his name?");
+        switch(name.toLowerCase()){
+            case "lucy":
+                game.out.writelnSlow("This Name...", 250);
+                game.out.writelnSlow("HOW DO YOU KNOW THE NAME OF HELL!!!\n",25);
+                System.exit(0);
+                break;
+            case "flowey":
+                game.out.writeS("That is a flower not a name.");
+                name = selectName();
+                break;
+            case "fuck":
+                game.out.writeS("That is an insult not a name.");
+                name = selectName();
+                break;
+            case "josef":
+                game.out.writeS("That is the creators name not a name. ;P");
+                name = selectName();
+                break;
+            case "lonelychild":
+                game.out.writeS("Come on.\nBe creative.");
+                name = selectName();
+                break;
+            case "child":
+                game.out.writeS("Come on.\nBe creative.");
+                name = selectName();
+                break;
+            case "teacher":
+                boolean answer = game.in.getInputWithQuestionYesNo("Are you a teacher?");
+                if(answer){
+                    game.out.writeS("Be more creative.");
+                }else{
+                    game.out.writeS("Show the teacher that you can be more creative than him.");
+                }
+                name = selectName();
+                break;
+            case "MasterStone":
+                game.out.writeS("YOU ARE NOT AN INNOCENT SOUL.");
+                name = selectName();
+                break;
+        }
+        return name;
     }
 
 }
