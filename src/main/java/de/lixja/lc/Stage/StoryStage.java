@@ -13,8 +13,19 @@ public class StoryStage extends Stage {
                 game.setStage(new ForestStage());
             }
 
+            askForPause();
             game.saveGameData();
         }
+    }
+    
+    public void askForPause(){        game.out.writeWall();
+        game.out.writeWall();
+        boolean answer = game.in.getInputWithQuestionYesNo("Do wanna make a break?");
+        if(answer){
+            System.exit(0);
+        }
+        game.out.writeWall();
+        game.out.writeWall();
     }
 
 }
