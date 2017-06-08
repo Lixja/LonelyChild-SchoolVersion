@@ -111,13 +111,16 @@ public class ForestStage extends Stage {
         game.sleep(1500);
         game.out.writeS("You don't know were you are.\n"
                 + "You can't even remember the way or since when you were in a forest.\n"
-                + "But you think know it's a better place.\n");
+                + "But you think it's safe now\n");
         game.out.writelnSlow(". . .", 500);
-        game.out.writeS("You don't want to think, about what they did.\n"
-                + "But you are still so angry!\n"
-                + "You think you will get crazy.\n");
+        game.out.writeS("You think about your family and the human race.\n"
+                + "You hate them.\n"
+                + "Everybody\n\n"
+                + "You start laughing with no reason.\n"
+                + "You think you get crazy.\n"
+                + "After all ");
         game.sleep(500);
-        game.out.writelnSlow("You hear a stone talking?", 120);
+        game.out.writelnSlow("you hear a stone talking?", 120);
         player.setPosition(1);
     }
 
@@ -133,9 +136,7 @@ public class ForestStage extends Stage {
     private void two() {
         game.out.writeS("No.\n");
         game.sleep(500);
-        game.out.writeS("I will not be like them.\n"
-                + "I will be an other person\n"
-                + "Even if they tortured me like that.\n");
+        game.out.writeS("You feeld great for not beeing an asshole.");
         game.in.next();
         game.out.writeS("You ask the stone why you can hear him.\n\n"
                 + "The stone tells you you are in the forest of dreams.\n"
@@ -206,7 +207,8 @@ public class ForestStage extends Stage {
                         + "Snake: But be careful!");
                 break;
             case 3:
-                game.out.writeS("Stone: That is so interesting ^-^");
+                game.out.writeS("Stone: That is so interesting ^-^\n"
+                        + "Stone: You are the first human i ever met.");
                 break;
             default:
                 break;
@@ -247,7 +249,7 @@ public class ForestStage extends Stage {
 
     private void seven() {
         game.out.writeS("You go the way back.\n"
-                + "You don't know exactly what you will do, but this was to crazy for you\n"
+                + "You don't know exactly what you will do, but this was to crazy for you.\n"
                 + "You see a flower at the ground.\n");
         int resFlowey = game.setStage(new FightStage(new Flowey()));
         if (resFlowey == 2) {
@@ -261,7 +263,7 @@ public class ForestStage extends Stage {
 
     private void eight() {
         game.out.writeS("Why does the flower know me...\n");
-        game.out.writeS("I think is should leave the forest.\n"
+        game.out.writeS("I think i should leave the forest.\n"
                 + "I am scared.\n");
         player.setPosition(100);
         game.in.next();
@@ -289,7 +291,7 @@ public class ForestStage extends Stage {
     }
 
     private void gfive() {
-        List<String> options = Arrays.asList("Look around for your next victim", "Search for an Exit", "Eat a pice of the Snake");
+        List<String> options = Arrays.asList("Look around for your next victim", "Search for an Exit", "Eat a piece of the Snake");
         int answer = game.in.getInputWithOptionsV(options, "What do you wanna do?");
         switch (answer) {
             case 0:

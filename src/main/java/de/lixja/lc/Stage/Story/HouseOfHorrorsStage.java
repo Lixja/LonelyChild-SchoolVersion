@@ -265,7 +265,7 @@ public class HouseOfHorrorsStage extends Stage {
     
     private void gfour(){
         game.out.writeS("The house starts to burn.\n"
-                + "Mystery opens the doort.\n"
+                + "Mystery opens the door.\n"
                 + "You left the house.\n"
                 + "After some minutes there is no house at this place any more.\n"
                 + "There is only a deamon\n\n");

@@ -37,16 +37,19 @@ public class BootStage extends Stage {
         game.out.writelnSlow("Once Upon A Time...\n"
                 + "There Was A Little Child On A Rotten World.\n"
                 + "This World Was Once A Very Beautiful Place.\n"
-                + "But The Human Race Destroyed The Life Of This Soul.\n\n", 75);
+                + "But The Human Race Destroyed This Place.\n"
+                + "After Many Years A Child Was Born.\n"
+                + "And The Humans Selected This Child To Be Their Next Victim.\n"
+                + "The Story Of This Soul Is A Sad One.\n\n", 75);
         game.out.writelnSlow(". . .", 400);
-        game.out.writeSlow("Every Human Was Bad To Him.\n"
-                + "His Family Punished.\n"
+        game.out.writeSlow("Every Human Bothered Him.\n"
+                + "His Family Beat Him.\n"
                 + "His \"Friends\" Bullied Him.\n"
-                + "His Teacher Shouted At Him With No Reason.\n"
-                + "Even People He Did Not Knew Bullied Him.\n"
-                + "WHY!!!\n"
+                + "His Teacher Shouted At Him.\n"
+                + "Even People He Did Not Knew Offended Him.\n\n"
                 + "There Wasn't A Reason For Turtiring Him.\n"
                 + "But Everybody Did It.\n"
+                + "And He Could Not Understand Why Him."
                 + "So He Run Away.\n",75);
         game.out.writeSlow("Far Far Away\n\n", 125);
 
