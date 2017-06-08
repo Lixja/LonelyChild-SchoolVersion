@@ -24,7 +24,7 @@ public class StoryStage extends Stage {
                 game.setStage(new HomeStage());
                 askForPause();
             }
-            if (player.getPosition() == 800 || player.getPosition() >= 990) {
+            if (player.getPosition() == 800 || player.getPosition() == 999) {
                 game.setStage(new WorldStage());
 
             }

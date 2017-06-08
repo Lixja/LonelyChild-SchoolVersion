@@ -12,3 +12,9 @@
 10. Pupil 50hp 10def 30atk
 11. Teacher 75hp 25def 45atk
 12. Principal 100hp 25def 50atk
+13. Brother 100hp 30def 50atk
+14. Sister 100hp 10def 30atk
+15. Father 150hp 50def 50atk
+16. Mother 150hp 50def 60atk
+17. World 500hp 100def 150atk
+18.

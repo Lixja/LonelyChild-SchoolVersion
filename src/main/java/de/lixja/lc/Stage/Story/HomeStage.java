@@ -33,7 +33,7 @@ import de.lixja.lc.Stage.Stage;
  */
 public class HomeStage extends Stage {
 
-    Player player;
+    private Player player;
 
     /*
         WARNING
@@ -152,8 +152,8 @@ public class HomeStage extends Stage {
                 + "They want to say something.\n");
         game.setStage(new FightStage(new Brother(true)));
         game.setStage(new FightStage(new Sister(true)));
-        game.setStage(new FightStage(new Mother(true)));
         game.setStage(new FightStage(new Father(true)));
+        game.setStage(new FightStage(new Mother(true)));
 
         game.out.writeS("You killed them before they said a word:\n\n"
                 + "Their body starts to melt.\n"

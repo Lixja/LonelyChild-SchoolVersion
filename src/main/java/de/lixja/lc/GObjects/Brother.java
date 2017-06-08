@@ -3,7 +3,7 @@ package de.lixja.lc.GObjects;
 public class Brother extends GObject {
 
     public Brother(boolean monster) {
-        super("Brother", 20, 5, 5, 1, 1);
+        super("Brother", 100, 30, 50, 14, 30);
     }
 
 }

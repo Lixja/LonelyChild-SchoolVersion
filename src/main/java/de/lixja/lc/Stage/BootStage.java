@@ -29,26 +29,27 @@ public class BootStage extends Stage {
     @Override
     public void start() {
         game.out.writeln("___LonelyChild___");
-        if (game.getData().getPlayer().getPosition() >= 999) {
-            game.out.writelnSlow("OnCe Up0n A TiMe...\n"
-                    + "ThEre WaS A LiTtlE Chi1d On A Ro11en W0rld.\n"
-                    + "Th1s W0r1d WaS OnCe A VeRy DaRk PlaCe.\n"
-                    + "But ThErE wAs A g0d nAmED.\n"
-                    + "LUCY\n", 75);
-
-            Random rn = new Random();
-            rn.setSeed(new Date().getTime());
-            int start = rn.nextInt(3);
-            if (start == 2) {
-                System.exit(0);
-            } else {
-                game.setStage(new StoryStage());
-            }
-        }
         if (game.getData().isTeachedStory()) {
-            if (game.in.getInputWithQuestionYesNo("Do you want to skip?")) {
-                game.setStage(new StoryStage());
-                return;
+            if (game.getData().getPlayer().getPosition() >= 999) {
+                game.out.writelnSlow("OnCe Up0n A TiMe...\n"
+                        + "ThEre WaS A LiTtlE Chi1d On A Ro11en W0rld.\n"
+                        + "Th1s W0r1d WaS OnCe A VeRy DaRk PlaCe.\n"
+                        + "But ThErE wAs A g0d nAmED.\n"
+                        + "LUCY\n", 75);
+
+                Random rn = new Random();
+                rn.setSeed(new Date().getTime());
+                int start = rn.nextInt(3);
+                if (start == 2) {
+                    System.exit(0);
+                } else {
+                    game.setStage(new StoryStage());
+                }
+            } else {
+                if (game.in.getInputWithQuestionYesNo("Do you want to skip?")) {
+                    game.setStage(new StoryStage());
+                    return;
+                }
             }
         }
         game.sleep(1000);
