@@ -113,7 +113,7 @@ public class HomeStage extends Stage {
                 + "He wants to scream.\n"
                 + "You attacked him.\n");
         if (game.setStage(new FightStage(new Teacher())) == 1) {
-            player.kill(10);
+            player.kill(11);
             game.out.writeS("A raven comes at pick his eye off.\n");
         } else {
             game.out.writeS("A swarm of raven comes and try to eat your teacher.\n"
@@ -133,7 +133,7 @@ public class HomeStage extends Stage {
                 + "Principal: You little bas.\n"
                 + "You attack him.\n");
         if (game.setStage(new FightStage(new Principal())) == 1) {
-            player.kill(10);
+            player.kill(12);
             game.out.writeS("His body starts to burn.\n");
         } else {
             game.out.writeS("His body catched fire.\nHe screams.\n"
@@ -154,6 +154,10 @@ public class HomeStage extends Stage {
         game.setStage(new FightStage(new Sister(true)));
         game.setStage(new FightStage(new Father(true)));
         game.setStage(new FightStage(new Mother(true)));
+        player.kill(13);
+        player.kill(14);
+        player.kill(15);
+        player.kill(16);
 
         game.out.writeS("You killed them before they said a word:\n\n"
                 + "Their body starts to melt.\n"

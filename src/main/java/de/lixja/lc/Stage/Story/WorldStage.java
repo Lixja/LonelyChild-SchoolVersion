@@ -61,12 +61,94 @@ public class WorldStage extends Stage {
         }
         game.in.next();
         if (game.setStage(new FightStage(new World())) == 1) {
+            player.kill(17);
+            player.setPosition(999);
+            game.saveGameData();
             shutdown();
         }
     }
 
     public void meetL() {
+        game.sleep(3000);
+        game.out.writeS("Lucy: ...\n"
+                + "Lucy: Hello " + player.getName()
+                + "Lucy: Until now i thought i would be the only beeing from hell that could kill Satan.\n"
+                + "Lucy: But you are special\n"
+                + "Lucy: Therefore."
+                + "Lucy: I hate you!");
+        game.sleep(1000);
+        if (player.getKilled(0)) {
+            game.out.writeS("MasterStone: I thought you are friendly");
+        }
+        if (player.getKilled(1)) {
+            game.out.writeS("Snake: I only wanted to protect my people.");
+        }
+        if (player.getKilled(2)) {
+            game.out.writeS("Wolf: I was cute...");
+        }
+        if (player.getKilled(3)) {
+            game.out.writeS("Tiger: I only wanted to find something for my kids.");
+        }
+        if (player.getKilled(4)) {
+            game.out.writeS("Flowey: I know i am bad flower but even i can be so bad.");
+        }
+        if (player.getKilled(5)) {
+            game.out.writeS("Ghost: You could help me.");
+        }
+        if (player.getKilled(6)) {
+            game.out.writeS("Vampir: I hate the sun, but i hate you more.");
+        }
+        if (player.getKilled(7)) {
+            if (player.getKilled(2)) {
+                game.out.writeS("Werewolf: You killed my son!");
+            } else {
+                game.out.writeS("Werewolf: I want to see my son one last time.");
+            }
+        }
+        if (player.getKilled(10)) {
+            game.out.writeS("Pupil: I bullied you.\nPupil: But you killed me.");
+        }
+        if (player.getKilled(11)) {
+            game.out.writeS("Teacher: I only wanted to teach you respect.");
+        }
+        if (player.getKilled(12)) {
+            game.out.writeS("Principal: I am sorry but you didn't followed the rules.");
+        }
+        if (player.getKilled(13)) {
+            game.out.writeS("Brother: You hit our Mother.");
+        }
+        if (player.getKilled(14)) {
+            game.out.writeS("Sister: You were so bad at us.");
+        }
+        if (player.getKilled(15)) {
+            game.out.writeS("Father: I only wanted to protect my family.\nFather: I don't know what i did to you.");
+        }
+        if (player.getKilled(16)) {
+            game.out.writeS("Mother: I love you my child.\nMother: But... YOU ARE A MONSTER\nMother: I can never forget what you did.");
+        }
+        if (player.getKilled(17)) {
+            game.out.writeS("World: They weren't the bad people.\nWorld: It was only YOU");
+        }
 
+        game.out.writeS("Now you remember.\nYou become more and more crazy\n");
+        game.out.writeS("You attack Lucy\n");
+        game.out.writeSlow(player.getName() + ": You are lying. Go away. I don't want to hear a word any more\n"
+                + player.getName() + ": You are lying LYING LYING LYING LYING.\n"
+                + player.getName() + ": I WILL KILL YOU LUCY\n", 10);
+        
+        game.setStage(new FightStage(new Player(player)));
+        game.out.writeS("Lucy: now it's over little child\n"
+                + "Lucy: I delete you.\n"
+                + "Lucy: Good bye.");
+
+        deleteGame();
+        shutdown();
+    }
+
+    public void deleteGame() {
+        game.getData().setTeachedStory(false);
+        game.getData().setPlayer(new Player(""));
+        game.saveGameData();
     }
 
     public void shutdown() {
@@ -90,7 +172,7 @@ public class WorldStage extends Stage {
             System.exit(0);
         }
         game.sleep(3000);
-        Thread crash = new Thread(new World());
+        Thread crash = new Thread(new World()); //If the pc does not shut down ^-^
         crash.start();
     }
 

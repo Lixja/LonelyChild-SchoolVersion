@@ -15,6 +15,17 @@ public class Player extends GObject {
         super(name, 10, 2, 3, 1, 1);
         position = 0;
     }
+    
+    public Player(Player pl){
+        super(pl.getName(), pl.getHp()*10, pl.getDef()*10, pl.getAtk()*10, pl.getLv()*10, 1);
+        startSentence = "I am Lucy.\n"
+                + "Also know as " + pl.getName();
+        sentences.add("I will show you pain.");
+        sentences.add("I will show you yourself.");
+        sentences.add("I will show what you did.");
+        sentences.add("You feel scared.");
+        sentences.add("You realised you will die.");
+    }
 
     public int getPosition() {
         return position;
