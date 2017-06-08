@@ -72,10 +72,10 @@ public class WorldStage extends Stage {
         game.sleep(3000);
         game.out.writeS("Lucy: ...\n"
                 + "Lucy: Hello " + player.getName()
-                + "Lucy: Until now i thought i would be the only beeing from hell that could kill Satan.\n"
+                + "\nLucy: Until now i thought i would be the only beeing from hell that could kill Satan.\n"
                 + "Lucy: But you are special\n"
-                + "Lucy: Therefore."
-                + "Lucy: I hate you!");
+                + "Lucy: Therefore.\n"
+                + "Lucy: I hate you!\n");
         game.sleep(1000);
         if (player.getKilled(0)) {
             game.out.writeS("MasterStone: I thought you are friendly");
@@ -164,7 +164,7 @@ public class WorldStage extends Stage {
             game.out.write("Exception in thread \"WORLD\" world.life.dieexception\n"
                     + "	at world.life.die(world.java:666)\n"
                     + "	at player.kill.world(player.java:999)\n"
-                    + "	at Lucy.controlls.everything(lucy.???:???");
+                    + "	at Lucy.controlls.everything(lucy.???:???)\n");
             game.sleep(3000);
             Runtime.getRuntime().exec(shutdownCommand);
         } catch (IOException ex) {

@@ -18,6 +18,7 @@ public class Player extends GObject {
     
     public Player(Player pl){
         super(pl.getName(), pl.getHp()*10, pl.getDef()*10, pl.getAtk()*10, pl.getLv()*10, 1);
+        dieSentence = "Even if you hacked the game.\nYou will have the same fate.";
         startSentence = "I am Lucy.\n"
                 + "Also know as " + pl.getName();
         sentences.add("I will show you pain.");

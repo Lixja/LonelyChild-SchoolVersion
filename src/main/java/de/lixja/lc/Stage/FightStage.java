@@ -76,12 +76,12 @@ public class FightStage extends Stage {
         Random rn = new Random();
         rn.setSeed(new Date().getTime());
         for (int i = 0; i < lv; i++) {
-            game.sleep(rn.nextInt(2100 - distime));
+            game.sleep(rn.nextInt(2100*(1/distime)+1));
             Date xTime = new Date();
             game.out.write("X");
             game.in.get();
             Date yTime = new Date();
-            if (xTime.getTime() + 750 - time < yTime.getTime()) {
+            if (xTime.getTime() + (750 *(1/time)) < yTime.getTime()) {
                 return false;
             }
         }
