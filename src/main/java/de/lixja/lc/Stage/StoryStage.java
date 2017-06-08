@@ -4,6 +4,7 @@ import de.lixja.lc.GObjects.Player;
 import de.lixja.lc.Stage.Story.ForestStage;
 import de.lixja.lc.Stage.Story.HomeStage;
 import de.lixja.lc.Stage.Story.HouseOfHorrorsStage;
+import de.lixja.lc.Stage.Story.WorldStage;
 
 public class StoryStage extends Stage {
 
@@ -22,6 +23,10 @@ public class StoryStage extends Stage {
             if ((player.getPosition() < 300 && player.getPosition() >= 200) || (player.getPosition() >= 700 && player.getPosition() < 800)) {
                 game.setStage(new HomeStage());
                 askForPause();
+            }
+            if (player.getPosition() == 800 || player.getPosition() >= 990) {
+                game.setStage(new WorldStage());
+
             }
         }
     }

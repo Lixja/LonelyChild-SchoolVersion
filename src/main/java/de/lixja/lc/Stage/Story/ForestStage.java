@@ -136,7 +136,7 @@ public class ForestStage extends Stage {
     private void two() {
         game.out.writeS("No.\n");
         game.sleep(500);
-        game.out.writeS("You feeld great for not beeing an asshole.");
+        game.out.writeS("You feel great for not beeing an asshole.\n");
         game.in.next();
         game.out.writeS("You ask the stone why you can hear him.\n\n"
                 + "The stone tells you you are in the forest of dreams.\n"

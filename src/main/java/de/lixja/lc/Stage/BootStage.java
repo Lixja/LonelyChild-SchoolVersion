@@ -17,6 +17,8 @@
 package de.lixja.lc.Stage;
 
 import de.lixja.lc.GObjects.Player;
+import java.util.Date;
+import java.util.Random;
 
 /**
  *
@@ -27,6 +29,22 @@ public class BootStage extends Stage {
     @Override
     public void start() {
         game.out.writeln("___LonelyChild___");
+        if (game.getData().getPlayer().getPosition() >= 999) {
+            game.out.writelnSlow("OnCe Up0n A TiMe...\n"
+                    + "ThEre WaS A LiTtlE Chi1d On A Ro11en W0rld.\n"
+                    + "Th1s W0r1d WaS OnCe A VeRy DaRk PlaCe.\n"
+                    + "But ThErE wAs A g0d nAmED.\n"
+                    + "LUCY\n", 75);
+
+            Random rn = new Random();
+            rn.setSeed(new Date().getTime());
+            int start = rn.nextInt(3);
+            if (start == 2) {
+                System.exit(0);
+            } else {
+                game.setStage(new StoryStage());
+            }
+        }
         if (game.getData().isTeachedStory()) {
             if (game.in.getInputWithQuestionYesNo("Do you want to skip?")) {
                 game.setStage(new StoryStage());
@@ -49,8 +67,8 @@ public class BootStage extends Stage {
                 + "Even People He Did Not Knew Offended Him.\n\n"
                 + "There Wasn't A Reason For Turtiring Him.\n"
                 + "But Everybody Did It.\n"
-                + "And He Could Not Understand Why Him."
-                + "So He Run Away.\n",75);
+                + "And He Could Not Understand Why Him.\n"
+                + "So He Run Away.\n", 75);
         game.out.writeSlow("Far Far Away\n\n", 125);
 
         if (!game.getData().isTeachedStory()) {
@@ -69,13 +87,13 @@ public class BootStage extends Stage {
         }
 
     }
-    
-    private String selectName(){
+
+    private String selectName() {
         String name = game.in.getInputWithQuestion("What was his name?");
-        switch(name.toLowerCase()){
+        switch (name.toLowerCase()) {
             case "lucy":
                 game.out.writelnSlow("This Name...", 250);
-                game.out.writelnSlow("HOW DO YOU KNOW THE NAME OF HELL!!!\n",25);
+                game.out.writelnSlow("HOW DO YOU KNOW THE NAME OF HELL!!!\n", 25);
                 System.exit(0);
                 break;
             case "flowey":
@@ -100,9 +118,9 @@ public class BootStage extends Stage {
                 break;
             case "teacher":
                 boolean answer = game.in.getInputWithQuestionYesNo("Are you a teacher?");
-                if(answer){
+                if (answer) {
                     game.out.writeS("Be more creative.");
-                }else{
+                } else {
                     game.out.writeS("Show the teacher that you can be more creative than him.");
                 }
                 name = selectName();

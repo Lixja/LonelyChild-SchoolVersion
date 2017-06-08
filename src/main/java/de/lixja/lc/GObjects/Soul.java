@@ -12,12 +12,12 @@ public class Soul extends GObject {
         sentences.add("hi?");
         sentences.add("i am peter");
         sentences.add("i was killed");
-        sentences.add("nobody listened to me");
-        sentences.add("but you do");
-        sentences.add("thank you");
-        sentences.add("*crys*");
-        sentences.add("that means so much for me.");
-        sentences.add("good bye\n*smiles*");
+        sentences.add("it was awful");
+        sentences.add("i can't rest");
+        sentences.add("i couldn't talk about that with somebody");
+        sentences.add("until now");
+        sentences.add("you seem friendly enough ^^");
+        sentences.add("thank you\ngood bye\n*smiles*");
         fightOptions.add(new FightOption("listen", 10));
 
     }

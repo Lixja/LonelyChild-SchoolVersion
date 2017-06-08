@@ -11,3 +11,4 @@
 9. Mystery 100hp 10def 10atk
 10. Pupil 50hp 10def 30atk
 11. Teacher 75hp 25def 45atk
+12. Principal 100hp 25def 50atk

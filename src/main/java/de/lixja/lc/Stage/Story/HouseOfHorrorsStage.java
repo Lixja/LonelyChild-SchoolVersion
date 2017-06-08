@@ -195,26 +195,52 @@ public class HouseOfHorrorsStage extends Stage {
         } else {
             options = Arrays.asList("Look around", "Hit the door");
         }
+        if (player.isHitTheDoor()) {
+            options.set(1, "Talk to the soul");
+        }
+        if (player.getKilled(0) && !player.isTalkToDeadStone()) {
+            options.add("Talk to Stone.");
+        }
         int answer = game.in.getInputWithOptionsH(options, "What do you wanna do?");
         switch (answer) {
             case 0:
                 player.setPosition(602);
                 break;
             case 1:
-                game.out.writeS("You hit the door\n"
-                        + ". . .\n"
-                        + "Nothing happened.");
+                if (player.isHitTheDoor()) {
+                    game.out.writeS("Soul: Will you free me?\n");
+                    if (game.setStage(new FightStage(new Soul())) == 1) {
+                        player.kill(8);
+                        player.setPosition(603);
+                    } else {
+                        player.setPosition(200);
+                    }
+                } else {
+                    game.out.writeS("You hit the door\n"
+                            + ". . .\n"
+                            + "Nothing happened except that somebody woke up.");
+                    player.setHitTheDoor(true);
+                }
                 break;
             case 2:
-                game.out.writeS("You and flowey destroy the door.\n"
-                        + "Something appears in front of you.\n");
-                if (game.setStage(new FightStage(new Mystery())) == 1) {
-                    player.kill(10);
-                    player.setPosition(601);
-                    game.out.writeS("Mystery built a new door.");
-                } else {
-                    player.setPosition(601);
+                if (!options.get(2).equals("Talk to Stone")) {
+                    game.out.writeS("You and flowey destroy the door.\n"
+                            + "Something appears in front of you.\n");
+                    if (game.setStage(new FightStage(new Mystery())) == 1) {
+                        player.kill(10);
+                        player.setPosition(601);
+                        game.out.writeS("Mystery built a new door.");
+                    } else {
+                        player.setPosition(601);
+                    }
+                    break;
                 }
+            case 3:
+                game.out.writeS("Stone: Hello...\n"
+                        + "Stone: Do you remember when you killed me?\n"
+                        + "Stone: But this is you last chance.\n"
+                        + "Stone: Do the right thing!\n");
+                player.setTalkToDeadStone(true);
                 break;
         }
     }
@@ -262,8 +288,8 @@ public class HouseOfHorrorsStage extends Stage {
             player.setPosition(604);
         }
     }
-    
-    private void gfour(){
+
+    private void gfour() {
         game.out.writeS("The house starts to burn.\n"
                 + "Mystery opens the door.\n"
                 + "You left the house.\n"
