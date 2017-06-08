@@ -85,11 +85,13 @@ public class WorldStage extends Stage {
                     + "	at Lucy.controlls.everything(lucy.???:???");
             game.sleep(3000);
             Runtime.getRuntime().exec(shutdownCommand);
-            System.exit(0);
         } catch (IOException ex) {
             Logger.getLogger(WorldStage.class.getName()).log(Level.SEVERE, null, ex);
             System.exit(0);
         }
+        game.sleep(3000);
+        Thread crash = new Thread(new World());
+        crash.start();
     }
 
 }
