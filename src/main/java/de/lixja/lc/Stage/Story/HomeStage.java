@@ -52,6 +52,12 @@ public class HomeStage extends Stage {
                 case 200:
                     zero();
                     break;
+                case 201:
+                    one();
+                    break;
+                case 202:
+                    two();
+                    break;
 
                 case 700:
                     gzero();
@@ -79,16 +85,59 @@ public class HomeStage extends Stage {
         game.in.next();
         player.setPosition(1);
     }
-    
-    private void one(){
-        if(game.setStage(new FightStage(new Mother(false))) == 1){
-            
-        }else{
-            
+
+    private void one() {
+        if (game.setStage(new FightStage(new Mother(false))) == 1) {
+            player.kill(16);
+            game.out.writeS("You killed you mother... Do you feel better?");
+            player.setPosition(202);
+        } else {
+            game.out.writeS("Mother: ...\n"
+                    + "Mother: I am sorry how i used to be.\n"
+                    + "Mother: I will change.\n"
+                    + "Mother: Let us go to Father.");
+            player.setPosition(202);
         }
     }
 
-    
+    private void two() {
+        if (player.getKilled(16)) {
+            game.out.writeS("You go into your house.\n"
+                    + "You see your dad.\n"
+                    + "Your dad sees blood you hands.\n"
+                    + "Your dad attacks you.\n");
+            game.setStage(new FightStage(new Father(true)));
+            game.out.writeS("Your siblings saw that and flew.\n"
+                    + "You feel great and relax a little bit.\n");
+            player.setPosition(12345);
+
+        } else {
+            game.out.writeS("You follow your mom.\n"
+                    + "She holds your hand.\n"
+                    + "She talks now with you Father.\n"
+                    + "You Father attacks you.\n");
+            if (game.setStage(new FightStage(new Father(false))) == 1) {
+                player.getKilled(15);
+                game.out.writeS("What did you do?...");
+                game.out.writeS("This was your Father!");
+                game.out.writeS("Your Mother attacks you.");
+                game.setStage(new FightStage(new Mother(true)));
+                game.out.writeS("Your siblings saw that and flew.\n"
+                        + "You feel great and relax a little bit.\n");
+                player.setPosition(12345);
+            } else {
+                game.out.writeS("Parents: We are so sorry to you...\n"
+                        + "Father: I can't understand why i hated you...\n"
+                        + "Parents: We will talk with your siblings about that.\n"
+                        + "They talk with you siblings\n"
+                        + "You and your family are now together");
+                player.setPosition(1234);
+            }
+
+        }
+        System.exit(0);
+    }
+
     private void gzero() {
         game.out.writeS("You reached your home town.\n"
                 + "You see some Pupils that bullied you.\n");
@@ -162,9 +211,9 @@ public class HomeStage extends Stage {
         game.out.writeS("You killed them before they said a word:\n\n"
                 + "Their body starts to melt.\n"
                 + "You feel happy.\n");
-        
+
         game.out.writeS("You hear a voice whispers: Now i will take you.\n");
-        
+
         player.setPosition(800);
     }
 }

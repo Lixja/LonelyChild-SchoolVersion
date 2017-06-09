@@ -30,7 +30,7 @@ public class BootStage extends Stage {
     public void start() {
         game.out.writeln("___LonelyChild___");
         if (game.getData().isTeachedStory()) {
-            if (game.getData().getPlayer().getPosition() >= 999) {
+            if (game.getData().getPlayer().getPosition() == 999) {
                 game.out.writelnSlow("OnCe Up0n A TiMe...\n"
                         + "ThEre WaS A LiTtlE Chi1d On A Ro11en W0rld.\n"
                         + "Th1s W0r1d WaS OnCe A VeRy DaRk PlaCe.\n"
@@ -45,11 +45,9 @@ public class BootStage extends Stage {
                 } else {
                     game.setStage(new StoryStage());
                 }
-            } else {
-                if (game.in.getInputWithQuestionYesNo("Do you want to skip?")) {
-                    game.setStage(new StoryStage());
-                    return;
-                }
+            } else if (game.in.getInputWithQuestionYesNo("Do you want to skip?")) {
+                game.setStage(new StoryStage());
+                return;
             }
         }
         game.sleep(1000);
@@ -61,6 +59,43 @@ public class BootStage extends Stage {
                 + "And The Humans Selected This Child To Be Their Next Victim.\n"
                 + "The Story Of This Soul Is A Sad One.\n\n", 75);
         game.out.writelnSlow(". . .", 400);
+        if (game.getData().getPlayer().getPosition() == 1234) {
+            game.out.writeS("This Child Run Away And Had A Big Journy.\n"
+                    + "After He Helped A Soul He Returned Home.\n"
+                    + "And Was Able To Come Together With His Family In Peace.\n"
+                    + "This Child Has Broken The Bad Side Of Humanity.\n"
+                    + "And Everybody Wondered Why They Were So Full Of Hate.\n\n");
+            game.sleep(500);
+            game.out.writeS("Th1s St0ry 1s S0 AkWaRd.\n");
+            boolean restart = game.in.getInputWithQuestionYesNo("D0 y0u 1na rEsEt?");
+            if (restart) {
+                game.getData().setTeachedStory(false);
+                game.getData().setPlayer(new Player(""));
+                game.saveGameData();
+            } else {
+                System.exit(0);
+            }
+        } else if (game.getData().getPlayer().getPosition() == 1235) {
+            game.out.writeS("This Child Had Schizophrenia.\n"
+                    + "The Teacher Tried to Teach Him The Right Thing.\n"
+                    + "But He Refused.\n"
+                    + "The Pupils Were Bullied By Him.\n"
+                    + "And He Laugh.\n"
+                    + "His Parents Loved Him And Tried To Help.\n"
+                    + "But He Beat Them.\n"
+                    + "He Was A Bad Child.\n\n\n"
+                    + "Now The Police Found Corpse Of His Parents In His House.\n"
+                    + "The Child Was Just Sitting There And Laughing And Yelled A Name.\n\n"
+                    + "LUCY\n");
+            boolean restart = game.in.getInputWithQuestionYesNo("D0 y0u 1na rEsEt?");
+            if (restart) {
+                game.getData().setTeachedStory(false);
+                game.getData().setPlayer(new Player(""));
+                game.saveGameData();
+            } else {
+                System.exit(0);
+            }
+        }
         game.out.writeSlow("Every Human Bothered Him.\n"
                 + "His Family Beat Him.\n"
                 + "His \"Friends\" Bullied Him.\n"
