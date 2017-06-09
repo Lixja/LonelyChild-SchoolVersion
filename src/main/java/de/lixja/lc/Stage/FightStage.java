@@ -1,8 +1,10 @@
 package de.lixja.lc.Stage;
 
 import de.lixja.lc.GObjects.GObject;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
 public class FightStage extends Stage {
@@ -40,7 +42,8 @@ public class FightStage extends Stage {
                     break;
             }
             if (!enemy.isDead() && !enemy.isHelped()) {
-                if (!attackBlocked(enemy.getLv(), (enemy.getAtk() * enemy.getLv()), enemy.getHp())) {
+                //if (!attackBlocked(enemy.getLv(), (enemy.getAtk() * enemy.getLv()), enemy.getHp())) {
+                if (!attackBlocked()) {
                     game.out.writeln(enemy.getName() + " attacked you!\nYou got " + player.damage(enemy.getAtk()) + " damage.");
                 }
                 game.out.writeWall();
@@ -71,21 +74,43 @@ public class FightStage extends Stage {
         }
     }
 
-    private boolean attackBlocked(int lv, int distime, int time) {
+    /*private boolean attackBlocked(int lv, int distime, int time) {
         game.out.writeS("Press the button when the X appears.");
         Random rn = new Random();
         rn.setSeed(new Date().getTime());
         for (int i = 0; i < lv; i++) {
-            game.sleep(rn.nextInt(2100*(1/distime)+1));
+            game.sleep(rn.nextInt(2100 * (1 / distime) + 1));
             Date xTime = new Date();
             game.out.write("X");
             game.in.get();
             Date yTime = new Date();
-            if (xTime.getTime() + (750 *(1/time)) < yTime.getTime()) {
+            if (xTime.getTime() + (750 * (1 / time)) < yTime.getTime()) {
                 return false;
             }
         }
         return true;
+    }*/
+    private boolean attackBlocked() {
+        game.out.writeS("Block the attack.");
+        List<String> options = Arrays.asList("Stone", "Scissor", "Paper");
+        int choice = game.in.getInputWithOptionsH(options, "What will you choose?");
+        Random rn = new Random();
+        rn.setSeed(new Date().getTime());
+        int cchoice = rn.nextInt(3);
+        game.out.writeS(enemy.getName() + " selected " + options.get(cchoice) + ".");
+        if (choice == cchoice) {
+            game.out.writeS("Draw");
+            return attackBlocked();
+        } else if (choice == cchoice - 1) {
+            game.out.writeS("You Won");
+            return true;
+        } else if (choice == 2 && cchoice == 0) {
+            game.out.writeS("You Won");
+            return true;
+        } else {
+            game.out.writeS("You Lost");
+            return false;
+        }
     }
 
     @Override
