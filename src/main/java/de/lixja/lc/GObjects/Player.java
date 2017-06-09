@@ -1,7 +1,5 @@
 package de.lixja.lc.GObjects;
 
-import java.util.LinkedList;
-
 public class Player extends GObject {
 
     private int position;
