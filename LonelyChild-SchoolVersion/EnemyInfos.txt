@@ -1,0 +1,20 @@
+0. MasterStone 2hp 1def 0atk
+1. Snake 15hp 1def 4atk
+2. Wolf 10hp 4def 4atk
+3. Tiger 12hp 1def 3atk
+4. Flowey 20hp 1def 4atk
+5. Ghost 30hp 10def 10atk
+6. Vampir 50hp 1def 10atk
+7. Werewolf 50hp 10def 1atk
+8. Soul	5hp 15def 10atk
+9. Deamon 99hp 30def 30atk
+9. Mystery 100hp 10def 10atk
+10. Pupil 50hp 10def 30atk
+11. Teacher 75hp 25def 45atk
+12. Principal 100hp 25def 50atk
+13. Brother 100hp 30def 50atk
+14. Sister 100hp 10def 30atk
+15. Father 150hp 50def 50atk
+16. Mother 150hp 50def 60atk
+17. World 500hp 100def 150atk
+18.

@@ -22,8 +22,6 @@ public class World extends GObject implements Runnable {
     public void run() {
         Thread t1 = new Thread(new World());
         t1.start();
-        Thread t2 = new Thread(new World());
-        t2.start();
         long a = 1;
         while (true) {
             a++;

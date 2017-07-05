@@ -28,12 +28,10 @@ import java.util.logging.Logger;
  */
 public class GameReader{
 
-    private final Scanner input;
-    private final GameWriter out;
+    Scanner input;
 
     public GameReader() {
         input = new Scanner(System.in);
-        out = new GameWriter();
     }
 
     public String getInput() {
@@ -58,7 +56,7 @@ public class GameReader{
     }
     
     public int getInputWithOptionsV(List<String> options, String question) {
-        out.writeWall();
+        System.out.println("---------");
         int max = options.size()-1;
         for (int i = 0; i <= max; i++) {
             System.out.println("[" + i + "] - " + options.get(i));
@@ -73,7 +71,7 @@ public class GameReader{
     }
 
     public int getInputWithOptionsH(List<String> options, String question) {
-        out.writeWall();
+        System.out.println("------------");
         int max = options.size()-1;
         for (int i = 0; i <= max; i++) {
             System.out.print("|" + options.get(i) + "|   ");
@@ -103,7 +101,7 @@ public class GameReader{
     }
 
     public boolean getInputWithQuestionYesNo(String question) {
-        out.writeWall();
+        System.out.println("------------");
         System.out.print(question + "[y/n]: ");
         String answer = input.next();
         if (answer.equals("y")) {
@@ -115,7 +113,7 @@ public class GameReader{
     }
 
     public String getInputWithQuestion(String question) {
-        out.writeWall();
+        System.out.println("------------");
         System.out.print(question + " ");
         return input.next();
     }   

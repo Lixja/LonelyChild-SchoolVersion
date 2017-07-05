@@ -37,10 +37,6 @@ public class FightStage extends Stage {
                     game.out.writeln("You did " + enemy.damage(player.getAtk()) + " damage to " + enemy.getName() + ".");
                     break;
                 case 1:
-                    if (enemy.getFightOptionsAsString().size() == 0) {
-                        game.out.writeS("There is no mercy.");
-                        break;
-                    }
                     int i = game.in.getInputWithOptionsH(enemy.getFightOptionsAsString(), "Choice");
                     enemy.help(i);
                     break;

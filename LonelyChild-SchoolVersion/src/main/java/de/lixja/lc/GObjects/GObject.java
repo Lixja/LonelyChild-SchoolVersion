@@ -36,13 +36,8 @@ public class GObject {
         fightOptions = new LinkedList<>();
     }
     
-    public int damage(int atk) {
-        int damage;
-        if (atk == 0) {
-            damage = 0;
-        } else {
-            damage = (int) ((atk / def) * 1.5) + 1;
-        }
+    public int damage(int atk){
+        int damage = atk/def;
         chp -= damage;
         return damage;
     }

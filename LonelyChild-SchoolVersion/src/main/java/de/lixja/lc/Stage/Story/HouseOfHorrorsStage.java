@@ -27,7 +27,6 @@ import de.lixja.lc.Stage.FightStage;
 import de.lixja.lc.Stage.Stage;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -75,9 +74,6 @@ public class HouseOfHorrorsStage extends Stage {
                     break;
                 case 603:
                     gthree();
-                    break;
-                case 604:
-                    gfour();
                     break;
             }
             game.saveGameData();
@@ -195,9 +191,9 @@ public class HouseOfHorrorsStage extends Stage {
         game.out.writeWall();
         List<String> options;
         if (player.isConsistsFlowey()) {
-            options = new LinkedList<>(Arrays.asList("Look around", "Hit the door", "Destroy the door"));
+            options = Arrays.asList("Look around", "Hit the door", "Destroy the door");
         } else {
-            options = new LinkedList<>(Arrays.asList("Look around", "Hit the door"));
+            options = Arrays.asList("Look around", "Hit the door");
         }
         if (player.isHitTheDoor()) {
             options.set(1, "Talk to the soul");
@@ -253,7 +249,7 @@ public class HouseOfHorrorsStage extends Stage {
         Random rn = new Random();
         rn.setSeed(new Date().getTime());
         game.out.writeS("You look around.");
-        game.out.writeSlow(". . .\n", 500);
+        game.out.writeSlow(". . .", 500);
         int answer = (int) (rn.nextDouble() * 4);
         if (answer == 0) {
             if (game.setStage(new FightStage(new Ghost())) == 1) {
@@ -289,9 +285,8 @@ public class HouseOfHorrorsStage extends Stage {
     private void gthree() {
         if (game.setStage(new FightStage(new Deamon())) == 1) {
             player.kill(9);
-
+            player.setPosition(604);
         }
-        player.setPosition(604);
     }
 
     private void gfour() {

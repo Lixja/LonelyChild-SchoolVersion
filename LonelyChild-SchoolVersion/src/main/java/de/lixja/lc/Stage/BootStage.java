@@ -51,16 +51,15 @@ public class BootStage extends Stage {
             }
         }
         game.sleep(1000);
-        game.out.writeS("Once Upon A Time...\n"
+        game.out.writelnSlow("Once Upon A Time...\n"
                 + "There Was A Little Child On A Rotten World.\n"
                 + "This World Was Once A Very Beautiful Place.\n"
                 + "But The Human Race Destroyed This Place.\n"
                 + "After Many Years A Child Was Born.\n"
                 + "And The Humans Selected This Child To Be Their Next Victim.\n"
-                + "The Story Of This Soul Is A Sad One.\n\n");
+                + "The Story Of This Soul Is A Sad One.\n\n", 75);
         game.out.writelnSlow(". . .", 400);
-        if (game.getData().isTeachedStory()) {
-            if (game.getData().getPlayer().getPosition() == 1234) {
+        if (game.getData().getPlayer().getPosition() == 1234) {
             game.out.writeS("This Child Run Away And Had A Big Journy.\n"
                     + "After He Helped A Soul He Returned Home.\n"
                     + "And Was Able To Come Together With His Family In Peace.\n"
@@ -96,9 +95,8 @@ public class BootStage extends Stage {
             } else {
                 System.exit(0);
             }
-            }
         }
-        game.out.writeS("Every Human Bothered Him.\n"
+        game.out.writeSlow("Every Human Bothered Him.\n"
                 + "His Family Beat Him.\n"
                 + "His \"Friends\" Bullied Him.\n"
                 + "His Teacher Shouted At Him.\n"
@@ -106,7 +104,7 @@ public class BootStage extends Stage {
                 + "There Wasn't A Reason For Turtiring Him.\n"
                 + "But Everybody Did It.\n"
                 + "And He Could Not Understand Why Him.\n"
-                + "So He Run Away.\n");
+                + "So He Run Away.\n", 75);
         game.out.writeSlow("Far Far Away\n\n", 125);
 
         if (!game.getData().isTeachedStory()) {

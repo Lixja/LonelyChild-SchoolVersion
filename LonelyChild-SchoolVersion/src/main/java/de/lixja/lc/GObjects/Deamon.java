@@ -47,7 +47,6 @@ public class Deamon extends GObject {
                 sentences.add("Soul recovered hp from determination to kill you.");
                 sentences.add("I have to stay and kill you.");
             }
-            this.setNeededhelp(1);
         } else {
             if (this.getChp() <= 0) {
                 return true;

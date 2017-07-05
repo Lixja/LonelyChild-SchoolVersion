@@ -323,7 +323,7 @@ public class ForestStage extends Stage {
         Random rn = new Random();
         rn.setSeed(new Date().getTime());
         game.out.writeS("You look around.");
-        game.out.writeSlow(". . .\n", 500);
+        game.out.writeSlow(". . .", 500);
         int answer = (int) (rn.nextDouble() * 10);
         if (answer < 4) {
             if (game.setStage(new FightStage(new Wolf())) == 1) {
